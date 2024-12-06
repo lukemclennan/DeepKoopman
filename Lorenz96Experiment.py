@@ -6,11 +6,11 @@ params = {}
 
 # settings related to dataset
 params['data_name'] = 'Lorenz96'
-params['data_train_len'] = 1
-params['len_time'] = 100
+params['data_train_len'] = 3
+params['len_time'] = 101
 n = 4  # dimension of system (and input layer)
 num_initial_conditions = 5000  # per training file
-params['delta_t'] = 0.05
+params['delta_t'] = 0.01
 
 # settings related to saving results
 params['folder_name'] = 'exp_l96'
@@ -60,5 +60,4 @@ params['min_4hr'] = .000005
 params['min_halfway'] = 1
 
 # for count in range(200):  # loop to do random experiments
-#     training.main_exp(copy.deepcopy(params))
 training.main_exp(copy.deepcopy(params))

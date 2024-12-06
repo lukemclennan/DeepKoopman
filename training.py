@@ -2,7 +2,8 @@ import os
 import time
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 import helperfns
 import networkarch as net
@@ -233,6 +234,8 @@ def try_net(data_val, params):
             if step % 20 == 0:
                 train_error = sess.run(loss, feed_dict=feed_dict_train_loss)
                 val_error = sess.run(loss, feed_dict=feed_dict_val)
+
+                print(step, train_error, val_error)
 
                 if val_error < (best_error - best_error * (10 ** (-5))):
                     best_error = val_error.copy()

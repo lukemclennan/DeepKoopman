@@ -14,7 +14,8 @@ def gen_trajs(initial, t_eval, F):
     return trajs
 
 initial = np.random.randn(5000, 4)
-t_eval = np.linspace(0,5,100)
+t_eval = np.arange(0, 1.005, 0.01)
+print(t_eval.shape)
 F = 8
 
 trajs = gen_trajs(initial, t_eval, F)
@@ -31,6 +32,6 @@ trajs = trajs.reshape((trajs.shape[0]*trajs.shape[1], trajs.shape[2]))
 print(trajs.shape)
 
 trajs = pd.DataFrame(trajs)
-# trajs.to_csv("data/Lorenz96_train1_x.csv", header=False, index=False)
+# trajs.to_csv("data/Lorenz96_train3_x.csv", header=False, index=False)
 trajs.to_csv("data/Lorenz96_val_x.csv", header=False, index=False)
 
