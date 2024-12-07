@@ -13,25 +13,26 @@ def gen_trajs(initial, t_eval, F):
         trajs[i,:,:] = odeint(odefunc, initial[i,:], t_eval)
     return trajs
 
-initial = np.random.randn(5000, 4)
-t_eval = np.arange(0, 1.005, 0.01)
-print(t_eval.shape)
-F = 8
+names = ["train1", "train2", "train3", "val"]
+for name in names:
+    initial = np.random.randn(5000, 4)
+    t_eval = np.arange(0, 0.1005, 0.001)
+    print(t_eval.shape)
+    F = 8
 
-trajs = gen_trajs(initial, t_eval, F)
+    trajs = gen_trajs(initial, t_eval, F)
 
-i = 0
+    i = 0
 
-fig = plt.figure()
-ax = fig.add_subplot(projection='3d')
-ax.plot(trajs[i, :, 0], trajs[i, :, 1], trajs[i, :, 2])
-plt.show()
+    fig = plt.figure()
+    ax = fig.add_subplot(projection='3d')
+    ax.plot(trajs[i, :, 0], trajs[i, :, 1], trajs[i, :, 2])
+    plt.show()
 
-print(trajs.shape)
-trajs = trajs.reshape((trajs.shape[0]*trajs.shape[1], trajs.shape[2]))
-print(trajs.shape)
+    print(trajs.shape)
+    trajs = trajs.reshape((trajs.shape[0]*trajs.shape[1], trajs.shape[2]))
+    print(trajs.shape)
 
-trajs = pd.DataFrame(trajs)
-# trajs.to_csv("data/Lorenz96_train3_x.csv", header=False, index=False)
-trajs.to_csv("data/Lorenz96_val_x.csv", header=False, index=False)
+    trajs = pd.DataFrame(trajs)
+    trajs.to_csv("data/Lorenz96_" + name + "_x.csv", header=False, index=False)
 

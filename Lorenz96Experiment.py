@@ -10,7 +10,7 @@ params['data_train_len'] = 3
 params['len_time'] = 101
 n = 4  # dimension of system (and input layer)
 num_initial_conditions = 5000  # per training file
-params['delta_t'] = 0.01
+params['delta_t'] = 0.001
 
 # settings related to saving results
 params['folder_name'] = 'exp_l96'
