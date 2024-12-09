@@ -1,0 +1,2 @@
+model_checkpoint_path: "Lorenz96_2024_12_09_12_10_01_056169_model.ckpt"
+all_model_checkpoint_paths: "Lorenz96_2024_12_09_12_10_01_056169_model.ckpt"
