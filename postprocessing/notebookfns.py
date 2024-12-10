@@ -441,7 +441,7 @@ def loss_training(params, max_shifts_to_stack, W, b):
         loss1, loss2, loss3, loss_Linf, loss = define_loss(X_stacked, y, g_list, params, W, b)
         total_loss1 += loss1
         total_loss2 += loss2
-        total_loss3 += loss3
+        total_loss3 += loprint(params['num_shifts'])ss3
         total_loss_Linf += loss_Linf
         total_loss += loss
         loss_L1, loss_L2, regularized_loss = define_regularization(params, W, b, loss)
